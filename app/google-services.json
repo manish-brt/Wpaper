@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "986792598982",
+    "firebase_url": "https://wallpaper-aa11.firebaseio.com",
+    "project_id": "wallpaper-aa11",
+    "storage_bucket": "wallpaper-aa11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986792598982:android:85b142239bc22275",
+        "android_client_info": {
+          "package_name": "com.example.manish.wpaper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "986792598982-bng7a16l4t8febgknqh2jmvhfpv5srg0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.manish.wpaper",
+            "certificate_hash": "a16a1794267991e9100f6f029ca72fa328b130de"
+          }
+        },
+        {
+          "client_id": "986792598982-7gn9r5ttafsulmb1o7ahtqites8qq42j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.manish.wpaper",
+            "certificate_hash": "4e31330f6ee17da7158008e2f60ed0846870820c"
+          }
+        },
+        {
+          "client_id": "986792598982-e3effaiefrhkp4eeeg4gio7g20on3f2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPenJHBOXgvzIu81WXPugdgH_OiDCseB0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "986792598982-e3effaiefrhkp4eeeg4gio7g20on3f2c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
