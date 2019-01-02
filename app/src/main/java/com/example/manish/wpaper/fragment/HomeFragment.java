@@ -1,10 +1,8 @@
-package com.example.manish.wpaper;
+package com.example.manish.wpaper.fragment;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,14 +14,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.view.SimpleDraweeView;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.manish.wpaper.activity.UpdatePostActivity;
+import com.example.manish.wpaper.model.PostModel;
+import com.example.manish.wpaper.R;
+import com.example.manish.wpaper.activity.BlogSingleActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.squareup.picasso.Picasso;
 
 
 /**
@@ -68,21 +68,22 @@ public class HomeFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        FirebaseRecyclerAdapter<ModelClass, BlogViewHolder> firebaseRecyclerAdapter =
-                new FirebaseRecyclerAdapter<ModelClass, BlogViewHolder>(
-                        ModelClass.class,
+        FirebaseRecyclerAdapter<PostModel, BlogViewHolder> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<PostModel, BlogViewHolder>(
+                        PostModel.class,
                         R.layout.design_row,
                         BlogViewHolder.class,
                         myRef) {
 
                     @Override
-                    protected void populateViewHolder(final BlogViewHolder viewHolder, final ModelClass model, int pos) {
+                    protected void populateViewHolder(final BlogViewHolder viewHolder, final PostModel model, int pos) {
 
                         final String post_key = getRef(pos).getKey();
 
                         viewHolder.setTile(model.getTitle());
                         viewHolder.setDesc(model.getDesc());
                         viewHolder.setImage(model.getImage());
+                        viewHolder.setUserNAme(model.getPostedBy());
                         try {
                             viewHolder.setLocation(model.getLocation());
                         }catch (NullPointerException e){
@@ -99,6 +100,11 @@ public class HomeFragment extends Fragment {
                                     public boolean onMenuItemClick(MenuItem item) {
 
                                         switch (item.getItemId()) {
+                                            case R.id.update_post:
+                                                Intent updatePost = new Intent(getContext(),UpdatePostActivity.class);
+                                                updatePost.putExtra("blog_id",post_key);
+                                                startActivity(updatePost);
+                                                return true;
                                             case R.id.view_post:
 
                                                 Intent singleBlogIntent = new Intent(getContext(),BlogSingleActivity.class);
@@ -151,7 +157,7 @@ public class HomeFragment extends Fragment {
         View mView;
 
         ImageButton more_vert;
-        SimpleDraweeView post_img;
+        ImageView post_img;
 
         public BlogViewHolder(View itemView) {
             super(itemView);
@@ -166,7 +172,7 @@ public class HomeFragment extends Fragment {
                 }
             });*/
             more_vert = (ImageButton)mView.findViewById(R.id.more_vert);
-            post_img = (SimpleDraweeView) mView.findViewById(R.id.post_img_fresco);
+            post_img =  mView.findViewById(R.id.post_img_fresco);
 
         }
 
@@ -180,12 +186,18 @@ public class HomeFragment extends Fragment {
             post_title.setText(desc);
         }
 
+        public void setUserNAme(String name){
+            TextView user_name = mView.findViewById(R.id.post_username);
+            user_name.setText(name);
+        }
         public void setLocation(String loc){
             TextView post_loc = (TextView) mView.findViewById(R.id.post_location);
             post_loc.setText(loc);
         }
         public void setImage(String image) {
-            post_img.setImageURI(image);
+            Glide.with(mView).load(image).apply(new RequestOptions()
+                    .placeholder(R.drawable.ic_add_circle_white_24dp)
+                    .centerCrop()).into(post_img);
         }
     }
 

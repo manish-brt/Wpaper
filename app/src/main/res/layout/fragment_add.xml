@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.manish.wpaper.AddFragment">
+    tools:context="com.example.manish.wpaper.fragment.AddFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -11,45 +11,65 @@
         <ImageButton
             android:id="@+id/img_select"
             android:layout_width="wrap_content"
-            android:layout_height="220dp"
+            android:layout_height="180dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:layout_margin="18dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@mipmap/add_btn" />
+            android:src="@mipmap/add_btn"
+            android:padding="5dp"/>
 
-        <EditText
-            android:id="@+id/title_field"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/img_select"
+            android:id="@+id/title_field_IL"
+            android:hint="Post Title"
+            android:background="@drawable/input_outline"
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
-            android:background="@drawable/input_outline"
-            android:hint="Post Title ...."
-            android:padding="8dp" />
+            android:padding="8dp" >
 
-        <EditText
-            android:id="@+id/decs_field"
+            <EditText
+                android:id="@+id/title_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/title_field_IL"
+            android:hint="Post Description"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/title_field"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/input_outline"
-            android:hint="Post Description ...."
-            android:padding="8dp" />
+            android:padding="8dp">
+
+            <EditText
+                android:id="@+id/decs_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="5"
+                android:background="@null"
+                android:textAlignment="textStart"/>
+
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/upload_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/decs_field"
+            android:layout_alignParentBottom="true"
             android:layout_marginTop="18dp"
-            android:background="@color/colorPrimary"
+            android:background="@android:color/black"
             android:text="UPLOAD"
+            android:textSize="18sp"
+            android:letterSpacing="0.2"
+            android:alpha="0.8"
             android:textColor="@android:color/white" />
     </RelativeLayout>
 </FrameLayout>

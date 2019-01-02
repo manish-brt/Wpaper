@@ -1,17 +1,10 @@
-package com.example.manish.wpaper;
+package com.example.manish.wpaper.activity;
 
 import android.app.WallpaperManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.nfc.Tag;
-import android.os.AsyncTask;
-import android.os.Handler;
-import android.os.Looper;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.manish.wpaper.R;
 import com.gjiazhe.panoramaimageview.GyroscopeObserver;
 import com.gjiazhe.panoramaimageview.PanoramaImageView;
 import com.google.firebase.database.DataSnapshot;
@@ -31,9 +25,6 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URL;
 
 public class BlogSingleActivity extends AppCompatActivity {
 

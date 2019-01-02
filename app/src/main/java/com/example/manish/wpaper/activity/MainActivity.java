@@ -1,10 +1,8 @@
-package com.example.manish.wpaper;
+package com.example.manish.wpaper.activity;
 
-import android.*;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
-import android.location.Address;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -17,16 +15,20 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
+import com.example.manish.wpaper.services.GPSTracker;
+import com.example.manish.wpaper.fragment.ProfileFragment;
+import com.example.manish.wpaper.R;
+import com.example.manish.wpaper.fragment.AddFragment;
+import com.example.manish.wpaper.fragment.HomeFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.List;
 
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private BottomNavigationView bottomNavigationView;
     private FrameLayout mframelayout;
@@ -37,15 +39,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
 
+        setSupportToolbar();
+        setToolbarLeftIconClickListener();
+
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
 
         mframelayout = (FrameLayout)findViewById(R.id.bottom_navigation_frame);
-
-        Fresco.initialize(this);
 
         checkPermission();
         gps = new GPSTracker(getApplicationContext());
@@ -90,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
         int[] colors = new int[]{
                 ContextCompat.getColor(this, R.color.white),
-                ContextCompat.getColor(this, R.color.cardview_shadow_start_color)
+                ContextCompat.getColor(this, R.color.black)
         };
 
         ColorStateList colorStateList = new ColorStateList(states, colors);
@@ -140,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if(currentUser == null){
-            Intent AuthINtent = new Intent(this,AuthActivity.class);
+            Intent AuthINtent = new Intent(this, AuthActivity.class);
             startActivity(AuthINtent);
             finish();
         }

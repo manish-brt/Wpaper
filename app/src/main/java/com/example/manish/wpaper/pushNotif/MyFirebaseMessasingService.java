@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 
-import com.example.manish.wpaper.MainActivity;
+import com.example.manish.wpaper.activity.MainActivity;
 import com.example.manish.wpaper.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;

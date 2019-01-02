@@ -1,4 +1,4 @@
-package com.example.manish.wpaper;
+package com.example.manish.wpaper.fragment;
 
 
 import android.app.ProgressDialog;
@@ -9,7 +9,6 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -24,6 +23,9 @@ import android.widget.Toast;
 
 import android.Manifest;
 
+import com.example.manish.wpaper.services.GPSTracker;
+import com.example.manish.wpaper.activity.MainActivity;
+import com.example.manish.wpaper.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,7 +36,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -179,7 +180,7 @@ public class AddFragment extends Fragment {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             // Get a URL to the uploaded content
-                            @SuppressWarnings("VisibleForTests")Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                            @SuppressWarnings("VisibleForTests")Uri downloadUrl = taskSnapshot.getUploadSessionUri();
 
                             DatabaseReference newPost = mDatabase.push();
                             newPost.child("title").setValue(title_val);

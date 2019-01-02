@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.manish.wpaper.MainActivity">
+    tools:context="com.example.manish.wpaper.activity.MainActivity"
+    android:paddingTop="5dp">
+
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/toolbar" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -21,6 +26,7 @@
         app:menu="@menu/bottom_navigation_items" />
 
     <FrameLayout
+        android:layout_marginTop="55dp"
         android:id="@+id/bottom_navigation_frame"
         android:layout_width="0dp"
         android:layout_height="0dp"

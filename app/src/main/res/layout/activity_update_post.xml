@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.UpdatePostActivity">
+
+    <TextView
+        android:id="@+id/update_post_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:text="UPDATE"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.2"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_gravity="end"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/postted_by_til"
+        android:hint="Posted By"
+        android:background="@drawable/input_outline"
+        android:layout_margin="10dp"
+        android:padding="8dp" >
+
+        <EditText
+            android:id="@+id/posted_by_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/location_til"
+        android:hint="Location"
+        android:background="@drawable/input_outline"
+        android:layout_margin="10dp"
+        android:padding="8dp" >
+
+        <EditText
+            android:id="@+id/location_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/post_title_il"
+        android:hint="Post Title"
+        android:background="@drawable/input_outline"
+        android:layout_margin="10dp"
+        android:padding="8dp" >
+
+        <EditText
+            android:id="@+id/post_title_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/post_desc_til"
+        android:hint="Post Description"
+        android:background="@drawable/input_outline"
+        android:layout_margin="10dp"
+        android:padding="8dp" >
+
+        <EditText
+            android:id="@+id/post_desc_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"/>
+    </android.support.design.widget.TextInputLayout>
+
+</LinearLayout>
